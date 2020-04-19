@@ -10,9 +10,9 @@ table {
 	width: 75%;
 }
 
-table caption {
+table caption{
 	font-size: 30px;
-	font: bold;
+	font: bold; 
 	color: green;
 }
 
@@ -26,7 +26,6 @@ table th {
 	background: #eee;
 	align-items: center;
 }
-
 span.selected {
 	background: #ccf;
 }
@@ -40,9 +39,9 @@ span.selected {
 	</div>
 	<div align="center">
 		<c:choose>
-			<c:when test="${!empty all}">
-				<table border="1" style="align-content: center; width: 200;">
-					<caption>Student Data Table</caption>
+			<c:when test="${!empty datas}">
+				<table style="align-content: center; width: 200;">
+					<caption>Student Data Table Pagination</caption>
 					<tr style="width: 400px">
 						<th style="width: 100px; font-size: 5">ID</th>
 						<th style="width: 100px; font-size: 5">Name</th>
@@ -51,7 +50,7 @@ span.selected {
 						<th style="width: 100px; font-size: 5">Edit</th>
 						<th style="width: 100px; font-size: 5">Delete</th>
 					</tr>
-					<c:forEach items="${all }" var="student">
+					<c:forEach items="${datas.content }" var="student">
 						<tr>
 							<td style="width: 100px;"><c:out value="${student.id}"></c:out></td>
 							<td style="width: 100px;"><c:out value="${student.name}"></c:out></td>
@@ -63,6 +62,12 @@ span.selected {
 							</td>
 						</tr>
 					</c:forEach>
+					<tr>
+						<td colspan="6" align="center"><a href="studnetPage">First</a>&nbsp;&nbsp;&nbsp;
+							<c:forEach var="count" begin="1" end="${links }">
+								<a href="studnets?pageNo=${count}">${count}</a>&nbsp;&nbsp;&nbsp;
+							</c:forEach> <a href="studnets?pageNo=${links}">Last</a></td>
+					</tr>
 				</table>
 			</c:when>
 			<c:otherwise>

@@ -7,12 +7,39 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Student Register Page</title>
+<style>
+table {
+	width: 75%;
+}
+
+table caption {
+	font-size: 30px;
+	font: bold;
+	color: green;
+}
+
+table td, table th {
+	border: 1px solid grey;
+	align-content: center;
+	align-items: center;
+}
+
+table th {
+	background: #eee;
+	align-items: center;
+}
+
+span.selected {
+	background: #ccf;
+}
+</style>
 </head>
 <body>
 	<div align="center">
 		<h2>Student Registration Page</h2>
 	</div>
-	<hr><br>
+	<hr>
+	<br>
 	<div align="center">
 		<form:form action="insert" modelAttribute="student" method="post">
 			<table>

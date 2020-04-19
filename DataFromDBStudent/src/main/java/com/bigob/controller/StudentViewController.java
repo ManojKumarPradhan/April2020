@@ -41,11 +41,24 @@ public class StudentViewController {
 		map.put("student", new Student());
 		return "register";
 	}
-	
+
 	@PostMapping("insert")
 	public String saveStudent(Map<String, Object> map, @ModelAttribute Student student) {
 		map.put("message", studentService.saveStudent(student));
 		map.put("student", new Student());
 		return "register";
+	}
+
+	@GetMapping("studnetPage")
+	public String getStudentDataPageOne() {
+		return "redirect:/studnets?pageNo=1";
+	}
+
+	@GetMapping("studnets")
+	public String getStudentDataByPage(@RequestParam Integer pageNo, Map<String, Object> map) {
+		System.out.println("PageNo " + pageNo);
+		map.put("datas", studentService.getStudentbyPage(pageNo));
+		map.put("links", studentService.getpageLinkCount());
+		return "studentDataPages";
 	}
 }

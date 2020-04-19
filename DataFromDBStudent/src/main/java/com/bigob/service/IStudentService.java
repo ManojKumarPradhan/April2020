@@ -11,4 +11,8 @@ public interface IStudentService {
 	public String deleteStudentById(Integer id);
 	
 	public String saveStudent(Student student);
+	
+	public Object getStudentbyPage(Integer pageNo);
+	
+	public Integer getpageLinkCount();
 }
